@@ -96,7 +96,8 @@ const navitems = [
 ];
 
 const Navbar = () => {
-  // const user = JSON.parse(sessionStorage.getItem('user')) 
+  const firstname = sessionStorage.getItem('firstname');
+  const lastname = sessionStorage.getItem('lastname');
   const [showNav, setShowNav] = useState(false);
   const navigate = useNavigate();
   return (
@@ -304,8 +305,8 @@ const Navbar = () => {
               <Person className='text-white' sx={{ fontSize: "2.2rem" }} />
             </div>
             <span className='font-medium text-gray-600 whitespace-nowrap'>
-            <NavLink to="/profile">John Doe</NavLink>
-            {/* <NavLink to="/profile">{user.firstname} {user.lastname}</NavLink> */}
+            {/*<NavLink to="/profile">John Doe</NavLink>*/}
+             <NavLink to="/profile">{firstname} {lastname}</NavLink> 
             </span>
           </div>
         </div>

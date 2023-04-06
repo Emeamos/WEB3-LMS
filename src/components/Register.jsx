@@ -55,6 +55,8 @@ export default function Register() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    sessionStorage.setItem("firstname", user.firstname);
+    sessionStorage.setItem("lastname", user.lastname);
     setStatus(false)
     
     axios.post(url, user)
@@ -144,10 +146,10 @@ export default function Register() {
           <form action="" method="POST" onSubmit={(e) => handleSubmit(e)} >
              {/* <label for="firstame">First Name</label> */}
               
-               <input type="text" name="firstname" id="firstname" value={user["firstname"]} onChange={(e) => setUser({...user, firstname: e.target.value})} disabled={!status ? true : false} className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block md:w-full p-4 my-2" placeholder="First Name" required/>
+               <input type="text" name="firstname" id="firstname" value={user.firstname} onChange={(e) => setUser({...user, firstname: e.target.value})} disabled={!status ? true : false} className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block md:w-full p-4 my-2" placeholder="First Name" required/>
 
                {/* <label for="lastame">Last Name</label> */}
-               <input type="text" name="lastname" id="lastname" value={user["lastname"]} onChange={(e) => setUser({...user, lastname: e.target.value})} disabled={!status ? true : false} className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block  p-4 my-2" placeholder="Last Name" required/>
+               <input type="text" name="lastname" id="lastname" value={user.lastname} onChange={(e) => setUser({...user, lastname: e.target.value})} disabled={!status ? true : false} className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block  p-4 my-2" placeholder="Last Name" required/>
 
                {/* <label for="email">Email</label> */}
                <input type="email" name="email" id="email" value={user["email"]} onChange={(e) => setUser({...user, email: e.target.value})} disabled={!status ? true : false} className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block  p-4 my-2" placeholder="name@company.com" required/>
